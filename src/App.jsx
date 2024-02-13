@@ -8,11 +8,13 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import BookDetails from './pages/BookDetails/BookDetails'
+import BookSearch from './pages/BookSearch/BookSearch'
 
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
-
+import Comments from "../src/components/Comments/Comments"
 // services
 import * as authService from './services/authService'
 
@@ -59,6 +61,22 @@ function App() {
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleAuthEvt={handleAuthEvt} />
+            </ProtectedRoute>
+          }
+        />
+        <Route 
+          path="/bookSearch" 
+          element={<BookSearch />} 
+        />
+        <Route 
+          path="/book/:id" 
+          element={<BookDetails />} 
+        />
+        <Route 
+          path='/book/:id/comments'
+          element={
+            <ProtectedRoute user={user}>
+              <Comments />
             </ProtectedRoute>
           }
         />
