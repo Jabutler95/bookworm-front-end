@@ -10,7 +10,7 @@ import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import BookDetails from './pages/BookDetails/BookDetails'
 import BookSearch from './pages/BookSearch/BookSearch'
-
+import MyProfile from './pages/MyProfile/MyProfile'
 // components
 import NavBar from './components/NavBar/NavBar'
 import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute'
@@ -80,6 +80,19 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+
+        {/* Delete this route */}
+        <Route 
+        path='/myProfile'
+        element={
+          <ProtectedRoute user={user}>
+            <MyProfile />
+          </ProtectedRoute>
+        }></Route>
+        {/* Delete this route */}
+
+        
       </Routes>
     </>
   )
